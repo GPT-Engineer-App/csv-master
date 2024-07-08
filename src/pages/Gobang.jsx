@@ -73,7 +73,7 @@ const Gobang = () => {
         <CardHeader>
           <CardTitle>Gobang Game</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="bg-yellow-800">
           <div className="grid grid-cols-9 gap-0.5 bg-yellow-700 p-2">
             {board.map((row, rowIndex) =>
               row.map((cell, colIndex) => (
