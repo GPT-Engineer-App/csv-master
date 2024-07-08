@@ -9,8 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2, Home, FileText, Gamepad } from "lucide-react";
-import { Home, FileText, Gamepad } from "lucide-react";
+import { CircleUser, Menu, Package2, Home, FileText, Gamepad } from "lucide-react"; // Consolidate all imports
 import { NavLink, Outlet } from "react-router-dom";
 
 
