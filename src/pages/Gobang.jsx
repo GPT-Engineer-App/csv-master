@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
-const BOARD_SIZE = 15;
+const BOARD_SIZE = 9; // Change board size to 9x9
 
 const Gobang = () => {
   const [board, setBoard] = useState(Array(BOARD_SIZE).fill(Array(BOARD_SIZE).fill(null)));
@@ -74,7 +74,7 @@ const Gobang = () => {
           <CardTitle>Gobang Game</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-15 gap-1">
+          <div className="grid grid-cols-9 gap-1">
             {board.map((row, rowIndex) =>
               row.map((cell, colIndex) => (
                 <div
