@@ -7,7 +7,7 @@ const BOARD_SIZE = 9;
 
 const Gobang = () => {
   const [board, setBoard] = useState(Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null)));
-  const [currentPlayer, setCurrentPlayer] = useState("red");
+  const [currentPlayer, setCurrentPlayer] = useState("black");
   const [winner, setWinner] = useState(null);
 
   const handleCellClick = (row, col) => {
@@ -19,7 +19,7 @@ const Gobang = () => {
 
     setBoard(newBoard);
     checkWinner(newBoard, row, col, currentPlayer);
-    setCurrentPlayer(currentPlayer === "red" ? "green" : "red");
+    setCurrentPlayer(currentPlayer === "black" ? "red" : "black");
   };
 
   const checkWinner = (board, row, col, player) => {
@@ -63,7 +63,7 @@ const Gobang = () => {
 
   const handleRestart = () => {
     setBoard(Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null)));
-    setCurrentPlayer("red");
+    setCurrentPlayer("black");
     setWinner(null);
   };
 
@@ -74,14 +74,14 @@ const Gobang = () => {
           <CardTitle>Gobang Game</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-9 gap-1">
+          <div className="grid grid-cols-9 gap-1 bg-yellow-500 p-2">
             {board.map((row, rowIndex) =>
               row.map((cell, colIndex) => (
                 <div
                   key={`${rowIndex}-${colIndex}`}
                   onClick={() => handleCellClick(rowIndex, colIndex)}
                   className={`w-8 h-8 border border-gray-300 flex items-center justify-center cursor-pointer ${
-                    cell === "red" ? "bg-red-500" : cell === "green" ? "bg-green-500" : ""
+                    cell === "black" ? "bg-black rounded-full" : cell === "red" ? "bg-red-500 rounded-full" : ""
                   }`}
                 ></div>
               ))
