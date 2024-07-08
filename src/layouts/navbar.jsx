@@ -9,13 +9,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2, Gamepad } from "lucide-react";
+import { CircleUser, Menu, Home, FileText, Gamepad } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
+
 const navItems = [
   {
     title: "Home",
     to: "/",
-    icon: <Package2 className="h-4 w-4" />,
+    icon: <Home className="h-4 w-4" />,
   },
   {
     title: "CSV Management",
@@ -50,7 +51,7 @@ const DesktopNav = () => (
       to="/"
       className="flex items-center gap-2 text-lg font-semibold md:text-base"
     >
-      <Package2 className="h-6 w-6" />
+      <Home className="h-6 w-6" />
       <span className="sr-only">Acme Inc</span>
     </NavItem>
     {navItems.map((item) => (
@@ -75,7 +76,7 @@ const MobileNav = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold"
         >
-          <Package2 className="h-6 w-6" />
+          <Home className="h-6 w-6" />
           <span className="sr-only">Acme Inc</span>
         </NavItem>
         {navItems.map((item) => (
