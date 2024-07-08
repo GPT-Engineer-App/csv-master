@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
-const BOARD_SIZE = 9; // Change board size to 9x9
+const BOARD_SIZE = 9;
 
 const Gobang = () => {
-  const [board, setBoard] = useState(Array(BOARD_SIZE).fill(Array(BOARD_SIZE).fill(null)));
-  const [currentPlayer, setCurrentPlayer] = useState("black");
+  const [board, setBoard] = useState(Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null)));
+  const [currentPlayer, setCurrentPlayer] = useState("red");
   const [winner, setWinner] = useState(null);
 
   const handleCellClick = (row, col) => {
@@ -19,7 +19,7 @@ const Gobang = () => {
 
     setBoard(newBoard);
     checkWinner(newBoard, row, col, currentPlayer);
-    setCurrentPlayer(currentPlayer === "black" ? "white" : "black");
+    setCurrentPlayer(currentPlayer === "red" ? "green" : "red");
   };
 
   const checkWinner = (board, row, col, player) => {
@@ -62,8 +62,8 @@ const Gobang = () => {
   };
 
   const handleRestart = () => {
-    setBoard(Array(BOARD_SIZE).fill(Array(BOARD_SIZE).fill(null)));
-    setCurrentPlayer("black");
+    setBoard(Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null)));
+    setCurrentPlayer("red");
     setWinner(null);
   };
 
@@ -81,7 +81,7 @@ const Gobang = () => {
                   key={`${rowIndex}-${colIndex}`}
                   onClick={() => handleCellClick(rowIndex, colIndex)}
                   className={`w-8 h-8 border border-gray-300 flex items-center justify-center cursor-pointer ${
-                    cell === "black" ? "bg-black" : cell === "white" ? "bg-white" : ""
+                    cell === "red" ? "bg-red-500" : cell === "green" ? "bg-green-500" : ""
                   }`}
                 ></div>
               ))
